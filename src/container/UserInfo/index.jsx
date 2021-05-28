@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Header from '@/components/Header';
 import axios from 'axios';
 import { get, post, imgUrlTrans } from '@/utils'
+import { baseUrl } from 'config'
 import s from './style.module.less';
 
 const UserInfo = () => {
@@ -35,7 +36,7 @@ const UserInfo = () => {
     formData.append('file', file.file)
     axios({
       method: 'post',
-      url: 'http://47.99.134.126:7009/api/upload',
+      url: `${baseUrl}/api/upload`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

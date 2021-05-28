@@ -1,4 +1,5 @@
 import axios from './axios'
+import { baseUrl } from 'config'
 const MODE = import.meta.env.MODE // 环境变量
 
 export const get = axios.get
@@ -78,7 +79,7 @@ export const imgUrlTrans = (url) => {
   if (url && url.startsWith('http')) {
     return url
   } else {
-    url = `${MODE == 'development' ? 'http://localhost:7002' : 'http://47.99.134.126:7009'}${url}`
+    url = `${MODE == 'development' ? 'http://localhost:7002' : baseUrl}${url}`
     return url
   }
 }
