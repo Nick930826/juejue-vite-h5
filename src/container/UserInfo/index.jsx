@@ -35,7 +35,7 @@ const UserInfo = () => {
     formData.append('file', file.file)
     axios({
       method: 'post',
-      url: 'http://127.0.0.1:7002/api/upload',
+      url: 'http://47.99.134.126:7008/api/upload',
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',
