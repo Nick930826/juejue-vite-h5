@@ -19,6 +19,9 @@ axios.interceptors.response.use(res => {
     if (res.data.code == 401) {
       window.location.href = '/login'
     }
+    if (res.data.code == 413) {
+      Toast.show('图片不得超过 50kb')
+    }
     return Promise.reject(res.data)
   }
 

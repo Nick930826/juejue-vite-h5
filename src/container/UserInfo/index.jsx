@@ -44,10 +44,6 @@ const UserInfo = () => {
       }
     }).then(res => {
       setAvatar(imgUrlTrans(res.data))
-    }).catch((err) => {
-      if (err.code == 'Request_fileSize_limit') {
-        Toast.show('图片不得超过 50kb')
-      }
     })
   }
 
