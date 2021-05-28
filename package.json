@@ -2,8 +2,9 @@
   "name": "juejue-vite-h5",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode development",
+    "build:beta": "vite build --mode beta",
+    "build:release": "vite build --mode release",
     "serve": "vite preview"
   },
   "dependencies": {
