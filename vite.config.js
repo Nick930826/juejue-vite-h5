@@ -35,14 +35,14 @@ export default defineConfig({
       'config': path.resolve(__dirname, 'src/config') // src 路径
     }
   },
-  server: {
-    proxy: {
-      '/api': {
-        // 当遇到 /api 路径时，将其转换成 target 的值
-        target: 'http://0.0.0.0:7002',
-        changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, '') // 将 /api 重写为空
-      }
-    }
-  }
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       // 当遇到 /api 路径时，将其转换成 target 的值
+  //       target: 'http://47.99.134.126:7009',
+  //       changeOrigin: true,
+  //       rewrite: path => path.replace(/^\/api/, '') // 将 /api 重写为空
+  //     }
+  //   }
+  // }
 })

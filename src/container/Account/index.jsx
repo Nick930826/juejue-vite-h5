@@ -7,10 +7,14 @@ import { post } from '@/utils'
 import s from './style.module.less'
 
 const Account = (props) => {
+  // Account 通过 createForm 高阶组件包裹之后，可以在 props 中获取到 form 属性
   const { getFieldProps, getFieldError } = props.form;
 
+  // 提交修改方法
   const submit = () => {
+    // validateFields 获取表单属性元素
     props.form.validateFields(async (error, value) => {
+      // error 表单验证全部通过，为 false，否则为 true
       if (!error) {
         console.log(value)
         if (value.newpass != value.newpass2) {

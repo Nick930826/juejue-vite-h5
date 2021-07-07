@@ -119,11 +119,11 @@ const Home = () => {
           }}
         >
           {
-              list.map((item, index) => <BillItem
-                bill={item}
-                key={index}
-              />)
-            }
+            list.map((item, index) => <BillItem
+              bill={item}
+              key={index}
+            />)
+          }
         </Pull> : <Empty />
       }
     </div>

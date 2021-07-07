@@ -13,7 +13,7 @@ const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
   const dateRef = useRef()
   const id = detail && detail.id // 外部传进来的账单详情 id
   const [show, setShow] = useState(false);
-  const [payType, setPayType] = useState('expense'); // 支出或收入类型)
+  const [payType, setPayType] = useState('expense'); // 支出或收入类型
   const [expense, setExpense] = useState([]); // 支出类型数组
   const [income, setIncome] = useState([]); // 收入类型数组
   const [currentType, setCurrentType] = useState({});
@@ -54,9 +54,9 @@ const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
     setExpense(_expense);
     setIncome(_income);
       // 没有 id 的情况下，说明是新建账单。
-      if (!id) {
-        setCurrentType(_expense[0]);
-      };
+    if (!id) {
+      setCurrentType(_expense[0]);
+    };
   }, []);
 
   // 切换收入还是支出

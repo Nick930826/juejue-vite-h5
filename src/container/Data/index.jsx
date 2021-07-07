@@ -10,7 +10,7 @@ import s from './style.module.less';
 let proportionChart = null
 
 const  Data = () => {
-  const monthRef = useRef()
+  const monthRef = useRef();
   const [totalType, setTotalType] = useState('expense');
   const [currentMonth, setCurrentMonth] = useState(dayjs().format('YYYY-MM'));
   const [totalExpense, setTotalExpense] = useState(0);

@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom'
-import axios from 'axios'
-import { Cell, Modal, Input, Button, Toast, FilePicker } from 'zarm'
+import { useHistory } from 'react-router-dom';
+import { Cell, Modal, Input, Button, Toast, FilePicker } from 'zarm';
 import { get, post, imgUrlTrans } from '@/utils';
 
 import s from './style.module.less';
 
 const User = () => {
-  const history = useHistory()
+  const history = useHistory();
   const [user, setUser] = useState({});
   const [signature, setSignature] = useState('');
   const [show, setShow] = useState(false);
-  const [avatar, setAvatar] = useState('')
-  const token = localStorage.getItem('token')
+  const [avatar, setAvatar] = useState('');
 
   useEffect(() => {
     getUserInfo();
@@ -32,26 +30,26 @@ const User = () => {
       signature: signature
     });
     setUser(data);
-    setShow(false)
-    Toast.show('修改成功')
+    setShow(false);
+    Toast.show('修改成功');
   } ;
 
   // 退出登录
   const logout = async () => {
-    localStorage.removeItem('token')
-    history.push('/login')
-  }
+    localStorage.removeItem('token');
+    history.push('/login');
+  };
 
   return <div className={s.user}>
-   <div className={s.head}>
-    <div className={s.info}>
-      <span>昵称：{ user.username }</span>
-      <span>
-        <img style={{ width: 30, height: 30, verticalAlign: '-10px' }} src="//s.yezgea02.com/1615973630132/geqian.png" alt="" />
-        <b>{ user.signature || '暂无内容' }</b>
-      </span>
-    </div>
-    <img className={s.avatar} style={{ width: 60, height: 60, borderRadius: 8 }} src={avatar} alt="" />
+    <div className={s.head}>
+      <div className={s.info}>
+        <span>昵称：{ user.username }</span>
+        <span>
+          <img style={{ width: 30, height: 30, verticalAlign: '-10px' }} src="//s.yezgea02.com/1615973630132/geqian.png" alt="" />
+          <b>{ user.signature || '暂无内容' }</b>
+        </span>
+      </div>
+      <img className={s.avatar} style={{ width: 60, height: 60, borderRadius: 8 }} src={avatar} alt="" />
    </div>
    <div className={s.content}>
     <Cell

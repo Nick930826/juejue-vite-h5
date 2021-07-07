@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { Popup, DatePicker  } from 'zarm'
 import dayjs from 'dayjs' 
 
-import s from './style.module.less'
-
 const PopupDate = forwardRef(({ onSelect, mode = 'date' }, ref) => {
   const [show, setShow] = useState(false)
   const [now, setNow] = useState(new Date())

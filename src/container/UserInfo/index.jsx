@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, FilePicker, Cell, Input, Toast } from 'zarm';
+import { Button, FilePicker, Input, Toast } from 'zarm';
 import { useHistory } from 'react-router-dom';
 import Header from '@/components/Header';
 import axios from 'axios';
