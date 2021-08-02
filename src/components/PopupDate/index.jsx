@@ -34,7 +34,7 @@ const PopupDate = forwardRef(({ onSelect, mode = 'date' }, ref) => {
     destroy={false}
     mountContainer={() => document.body}
   >
-    <div className={s.popupMonth}>
+    <div>
       <DatePicker
         visible={show}
         value={now}
