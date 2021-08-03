@@ -46,7 +46,7 @@ const BillItem = ({ bill }) => {
       </div>
     </div>
     {
-      bill && bill.bills.map(item => <Cell
+      bill && bill.bills.sort((a, b) => b.date - a.date).map(item => <Cell
         className={s.bill}
         key={item.id}
         onClick={() => goToDetail(item)}
