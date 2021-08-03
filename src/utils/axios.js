@@ -10,7 +10,6 @@ axios.defaults.headers['Authorization'] = `${localStorage.getItem('token') || nu
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 axios.interceptors.response.use(res => {
-  console.log('res',res.data.msg)
   if (typeof res.data !== 'object') {
     Toast.show('服务端异常！')
     return Promise.reject(res)
