@@ -53,8 +53,8 @@ const Login = () => {
         Toast.show('注册成功');
          setType('login');
       }
-    } catch (error) {
-      Toast.show('系统错误');
+    } catch (err) {
+      Toast.show(err.msg);
     }
   };
 
