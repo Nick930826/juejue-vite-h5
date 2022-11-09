@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'
 import { TabBar } from 'zarm';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CustomIcon from '../CustomIcon';
 import s from './style.module.less';
 
 const NavBar = ({ showNav }) => {
   const [activeKey, setActiveKey] = useState('/');
-  const history = useHistory()
+  const navigateTo = useNavigate()
 
   const chnageTab = (path) => {
     setActiveKey(path)
-    history.push(path)
+    navigateTo(path)
   }
 
   return (

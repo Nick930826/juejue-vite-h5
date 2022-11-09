@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, FilePicker, Input, Toast } from 'zarm';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import axios from 'axios';
 import { get, post, imgUrlTrans } from '@/utils'
@@ -8,7 +8,7 @@ import { baseUrl } from 'config'
 import s from './style.module.less';
 
 const UserInfo = () => {
-  const history = useHistory()
+  const navigateTo = useNavigate()
   const [user, setUser] = useState({});
   const [avatar, setAvatar] = useState('')
   const [signature, setSignature] = useState('')
@@ -54,7 +54,7 @@ const UserInfo = () => {
     });
 
     Toast.show('修改成功')
-    history.goBack()
+    navigateTo(-1)
   }
 
   return <>

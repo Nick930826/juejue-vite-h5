@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   useLocation
 } from "react-router-dom";
@@ -19,13 +19,9 @@ const  App = () => {
   }, [pathname]) // [] 内的参数若是变化，便会执行上述回调函数=
   return <ConfigProvider primaryColor={'#007fff'}>
     <>
-      <Switch>
-        {
-          routes.map(route => <Route exact key={route.path} path={route.path}>
-            <route.component />
-          </Route>)
-        }
-      </Switch>
+      <Routes>
+        {routes.map(route => <Route exact key={route.path} path={route.path} element={<route.component />} />)}
+      </Routes>
       <NavBar showNav={showNav} />
     </>
   </ConfigProvider>;

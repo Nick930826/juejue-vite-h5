@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Modal, Toast } from 'zarm';
 import qs from 'query-string';
 import cx from 'classnames';
@@ -14,7 +14,7 @@ import s from './style.module.less'
 const Detail = () => {
   const addRef = useRef();
   const location = useLocation();
-  const history = useHistory();
+  const navigateTo = useNavigate();
   const { id } = qs.parse(location.search);
 
   const [detail, setDetail] = useState({});
@@ -36,7 +36,7 @@ const Detail = () => {
       onOk: async () => {
         const { data } = await post('/api/bill/delete', { id })
         Toast.show('删除成功')
-        history.goBack()
+        navigateTo(-1)
       },
     });
   }

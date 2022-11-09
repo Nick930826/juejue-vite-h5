@@ -47,7 +47,11 @@ const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
     }
   };
 
-  useEffect(async () => {
+  useEffect(() => {
+    getList()
+  }, []);
+
+  const getList = async () => {
     const { data: { list } } = await get('/api/type/list');
     const _expense = list.filter(i => i.type == 1); // 支出类型
     const _income = list.filter(i => i.type == 2); // 收入类型
@@ -57,7 +61,7 @@ const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
     if (!id) {
       setCurrentType(_expense[0]);
     };
-  }, []);
+  }
 
   // 切换收入还是支出
   const changeType = (type) => {

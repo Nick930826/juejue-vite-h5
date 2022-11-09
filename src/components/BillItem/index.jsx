@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import { Cell } from 'zarm';
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import CustomIcon from '../CustomIcon';
 import { typeMap } from '@/utils';
 
@@ -11,7 +11,7 @@ import s from './style.module.less';
 const BillItem = ({ bill }) => {
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
-  const history = useHistory()
+  const navigateTo = useNavigate()
 
   // 当添加账单是，bill.bills 长度变化，触发当日收支总和计算。
   useEffect(() => {
@@ -28,7 +28,7 @@ const BillItem = ({ bill }) => {
   }, [bill.bills]);
 
   const goToDetail = (item) => {
-    history.push(`/detail?id=${item.id}`)
+    navigateTo(`/detail?id=${item.id}`)
   };
 
   return <div className={s.item}>

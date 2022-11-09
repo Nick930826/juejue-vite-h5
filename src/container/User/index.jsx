@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Cell, Modal, Input, Button, Toast, FilePicker } from 'zarm';
 import { get, post, imgUrlTrans } from '@/utils';
 
 import s from './style.module.less';
 
 const User = () => {
-  const history = useHistory();
+  const navigateTo = useNavigate();
   const [user, setUser] = useState({});
   const [signature, setSignature] = useState('');
   const [show, setShow] = useState(false);
@@ -37,7 +37,7 @@ const User = () => {
   // 退出登录
   const logout = async () => {
     localStorage.removeItem('token');
-    history.push('/login');
+    navigateTo('/login');
   };
 
   return <div className={s.user}>
@@ -55,13 +55,13 @@ const User = () => {
     <Cell
       hasArrow
       title="用户信息修改"
-      onClick={() => history.push('/userinfo')}
+      onClick={() => navigateTo('/userinfo')}
       icon={<img style={{ width: 20, verticalAlign: '-7px' }} src="//s.yezgea02.com/1615974766264/gxqm.png" alt="" />}
     />
     <Cell
       hasArrow
       title="重制密码"
-      onClick={() => history.push('/account')}
+      onClick={() => navigateTo('/account')}
       icon={<img style={{ width: 20, verticalAlign: '-7px' }} src="//s.yezgea02.com/1615974766264/zhaq.png" alt="" />}
     />
     {/* <Cell
@@ -72,7 +72,7 @@ const User = () => {
     <Cell
       hasArrow
       title="关于我们"
-      onClick={() => history.push('/about')}
+      onClick={() => navigateTo('/about')}
       icon={<img style={{ width: 20, verticalAlign: '-7px' }} src="//s.yezgea02.com/1615975178434/lianxi.png" alt="" />}
     />
    </div>
